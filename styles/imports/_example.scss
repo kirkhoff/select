@@ -13,12 +13,3 @@ h1 {
 select {
   opacity: 0;
 }
-
-.zen-ui-select-toggle {
-  transition: opacity 500ms;
-  -webkit-transition: opacity 500ms;
-  opacity: 0;
-}
-.zen-ui-select-toggle[style] {
-  opacity: 1;
-}

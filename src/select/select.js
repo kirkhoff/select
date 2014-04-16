@@ -210,25 +210,38 @@ angular.module('ck.select', [])
                                     $dom.getSelectOptions(element).then(function(options){
                                         scope.options = options;
                                         scope.selectedLabel = options[element[0].selectedIndex]['label'];
-                                        $dom.targetWidth(listContainer[0], function(){
-                                            var option = listContainer.find('li').eq(0);
-                                            return parseInt(option.css('padding-left'), 10) + parseInt(option.css('padding-right'), 10);
-                                        }).then(
-                                            function(w){
-                                                // Resolve - After getting the width back, add the padding back in
-                                                w = w + parseInt(toggle.css('padding-left'), 10)
-                                                    + parseInt(toggle.css('padding-right'), 10);
-                                                listContainer.attr('style', '').css('width', w);
-                                                toggle.css('width', w);
-                                            },
-                                            function(w){
-                                                // Reject - Padding is already included, so just set the width
-                                                listContainer.attr('style', '').css('width', w);
-                                                toggle.css('width', w);
-                                            }
-                                        );
                                     });
                                 });
+
+
+
+
+
+
+
+
+                                // $timeout example >:(
+
+                                $timeout(function(){
+                                    listContainer.css({
+                                        'display': 'block',
+                                        'visibility': 'hidden'
+                                    });
+                                    var zenSelectWidth = parseInt(toggle.css('padding-left'), 10)
+                                        + parseInt(toggle.css('padding-right'), 10)
+                                        + listContainer.prop('offsetWidth')
+                                        + 20; // Extra padding for visual concerns
+                                    listContainer.attr('style', '');
+                                    toggle.css('width', zenSelectWidth);
+                                    listContainer.css('width', zenSelectWidth);
+                                },0);
+
+
+
+
+
+
+
 
                                 scope.$on('$destroy', function(){
                                     disabledWatch();
