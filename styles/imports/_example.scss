@@ -1,0 +1,24 @@
+h1 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin: 3em 0 10px;
+}
+.content {
+  margin: 50px auto;
+  width: 900px;
+}
+.row {
+  margin: 5px;
+}
+
+select {
+  opacity: 0;
+}
+
+.zen-ui-select-toggle {
+  transition: opacity 500ms;
+  -webkit-transition: opacity 500ms;
+  opacity: 0;
+}
+.zen-ui-select-toggle[style] {
+  opacity: 1;
+}

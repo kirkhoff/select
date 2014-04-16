@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="styles/vendor/normalize.css" rel="stylesheet" type="text/css">
+    <link href="styles/vendor/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/ck.css" rel="stylesheet" type="text/css">
+    <title>Custom Select</title>
+</head>
+<body ng-app="ck.select" class="content">
+
+<h1>Static select box example</h1>
+<div class="row">
+    <select ng-model="foo" ng-init="foo = 'Superman'">
+        <option value="Superman">Superman</option>
+        <option value="Batman">Batman</option>
+        <option value="Aquaman">Aquaman</option>
+    </select>
+</div>
+
+<h1>Dynamic select box example</h1>
+<div class="row" ng-controller="PromisedContentCtrl" ng-init="bar = 'Fox'">
+    <select ng-model="bar"
+            ng-options="o.id as o.name for o in smashBros"></select>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.min.js"></script>
+<script src="src/select/select.js"></script>
+
+<script>
+
+    angular.module('ck.select')
+            .controller('PromisedContentCtrl', function($scope, $timeout, $q){
+                function getOptions(){
+                    var deferred = $q.defer();
+                    $timeout(function(){
+                        var options = [{
+                            'name': 'Fox',
+                            'id': 'Fox'
+                        },{
+                            'name': 'Captain Falcon',
+                            'id': 'CaptainFalcon',
+                        },{
+                            'name': 'Mario',
+                            'id': 'Mario'
+                        },{
+                            'name': 'Link',
+                            'id': 'Link'
+                        },{
+                            'name': 'Falco',
+                            'id': 'Falco'
+                        },{
+                            'name': 'Ness',
+                            'id': 'Ness'
+                        },{
+                            'name': 'Donkey Kong',
+                            'id': 'DonkeyKong'
+                        },{
+                            'name': 'Bowser',
+                            'id': 'Bowser'
+                        }];
+                        deferred.resolve(options);
+                    }, 1000);
+                    return deferred.promise;
+                }
+
+                getOptions().then(function(options){
+                    $scope.smashBros = options;
+                });
+            });
+
+</script>
+
+</body>

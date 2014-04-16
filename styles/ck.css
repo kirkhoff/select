@@ -1,0 +1,164 @@
+.zen-ui-select .zen-ui-select-toggle > span,
+.zen-ui-select .zen-ui-select-list > li {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal; }
+
+@font-face {
+  font-family: 'CaseIcons';
+  src: url("../styles/fonts/CaseIcons.eot?g8eyes");
+  src: url("../styles/fonts/CaseIcons.eot?#iefixg8eyes") format("embedded-opentype"), url("../styles/fonts/CaseIcons.woff?g8eyes") format("woff"), url("../styles/fonts/CaseIcons.ttf?g8eyes") format("truetype"), url("../styles/fonts/CaseIcons.svg?g8eyes#CaseIcons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'CaseIcons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-prev:before,
+.icon-arrow-left:before {
+  content: "\3c" !important; }
+
+.icon-next:before,
+.icon-arrow-right:before {
+  content: "\3e" !important; }
+
+.icon-warning:before {
+  content: "\26a0"; }
+
+.icon-x:before {
+  content: "\78"; }
+
+.icon-square:before {
+  content: "\e600"; }
+
+.icon-arrow-down:before {
+  content: "\2228"; }
+
+.icon-arrow-down-solid:before {
+  content: "\e601"; }
+
+.zen-ui-select {
+  display: inline-block;
+  position: relative; }
+  .zen-ui-select.zen-ui-select-open .zen-ui-select-toggle > .icon-arrow-down {
+    line-height: 42px;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); }
+  .zen-ui-select.zen-ui-select-open .zen-ui-select-toggle,
+  .zen-ui-select .zen-ui-select-toggle:focus,
+  .zen-ui-select .zen-ui-select-toggle:hover {
+    box-shadow: 0 0 0 7px rgba(255, 55, 50, 0.2);
+    border: 1px solid #381719;
+    color: #fff;
+    outline: 0; }
+    .zen-ui-select.zen-ui-select-open .zen-ui-select-toggle > span:after,
+    .zen-ui-select .zen-ui-select-toggle:focus > span:after,
+    .zen-ui-select .zen-ui-select-toggle:hover > span:after {
+      background-color: #94232d; }
+  .zen-ui-select .zen-ui-select-list-container {
+    background-color: #fff;
+    border: solid #5c2629;
+    border-radius: 0 0 2px 2px;
+    border-width: 0 1px 1px;
+    max-height: 145px;
+    overflow-y: hidden;
+    position: absolute;
+    top: 41px;
+    z-index: 2; }
+  .zen-ui-select .zen-ui-select-scrollpane {
+    max-height: 145px;
+    overflow-y: auto;
+    position: relative; }
+  .zen-ui-select .zen-ui-select-toggle {
+    zoom: 1;
+    background-color: #e42f3e;
+    border: 1px solid #5c2629;
+    color: #fff;
+    cursor: default;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 15px;
+    padding: 0 20px 0 11px;
+    position: relative;
+    text-align: left; }
+    .zen-ui-select .zen-ui-select-toggle:before, .zen-ui-select .zen-ui-select-toggle:after {
+      content: ' ';
+      display: table; }
+    .zen-ui-select .zen-ui-select-toggle:after {
+      clear: both; }
+    .zen-ui-select .zen-ui-select-toggle > span:first-child {
+      display: block;
+      float: left;
+      padding: 11px 0; }
+    .zen-ui-select .zen-ui-select-toggle .icon-arrow-down {
+      background-color: #bd2d39;
+      color: #fff;
+      display: block;
+      float: right;
+      font-family: 'CaseIcons';
+      font-size: 22px;
+      height: 39px;
+      line-height: 48px;
+      margin-left: 10px;
+      margin-right: -20px;
+      text-align: center;
+      width: 45px; }
+  .zen-ui-select .zen-ui-select-list {
+    margin: 0;
+    padding: 0; }
+    .zen-ui-select .zen-ui-select-list > li {
+      background-color: #fff;
+      border-bottom: 1px solid lightgrey;
+      color: #373737;
+      cursor: default;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-size: 15px;
+      font-weight: normal;
+      margin: 0;
+      outline: none;
+      padding: 7px 10px; }
+      .zen-ui-select .zen-ui-select-list > li:focus, .zen-ui-select .zen-ui-select-list > li:hover, .zen-ui-select .zen-ui-select-list > li.selected {
+        color: #e42f3e; }
+      .zen-ui-select .zen-ui-select-list > li:last-child {
+        border-bottom: 0; }
+  .zen-ui-select .zen-ui-select-toggle,
+  .zen-ui-select .zen-ui-select-list,
+  .zen-ui-select .zen-ui-select-list > li,
+  .zen-ui-select .zen-ui-select-list-container {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; }
+  .zen-ui-select .zen-ui-select-hidden {
+    display: none; }
+
+h1 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  margin: 3em 0 10px; }
+
+.content {
+  margin: 50px auto;
+  width: 900px; }
+
+.row {
+  margin: 5px; }
+
+select {
+  opacity: 0; }
+
+.zen-ui-select-toggle {
+  transition: opacity 100ms;
+  -webkit-transition: opacity 500ms;
+  opacity: 0; }
+
+.zen-ui-select-toggle[style] {
+  opacity: 1; }

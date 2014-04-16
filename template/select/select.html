@@ -1,0 +1,18 @@
+<div class="zen-ui-select" id="zen-ui-select-{{selectId}}">
+    <button type="button" class="zen-ui-select-toggle" tabindex="0" ng-disabled="selectDisabled">
+        <span ng-bind="selectedLabel"></span>
+        <i class="icon-arrow-down" aria-hidden="true"></i>
+    </button>
+    <div class="zen-ui-select-list-container zen-ui-select-hidden">
+        <div class="zen-ui-select-scrollpane">
+            <ul class="zen-ui-select-list">
+                <li tabindex="0" data-index="{{$index}}" title="{{option.label}}"
+                        ng-repeat="option in options track by option.value"
+                        ng-keydown="optionKeyDown($event)"
+                        ng-keyup="selectOption($event, option)"
+                        ng-click="selectOption($event, option)"
+                        ng-class="{'selected':option.label == selectedLabel}">{{option.label}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
